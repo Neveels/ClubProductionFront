@@ -1,0 +1,41 @@
+.wrap {
+  padding: 0 50px 50px;
+  background-color: #fff;
+}
+
+.shopNav {
+  padding: 0;
+  display: block;
+  background-color: #ffff;
+}
+
+.shopNav li {
+  text-transform: uppercase;
+  display: table-cell;
+  border-radius: 1px;
+  padding: 21px 20px 20px;
+  width: 100%;
+  min-width: 154.3px;
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.shopNav ul {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.banner {
+  margin-left: -25px;
+  position: relative;
+  /* padding: 0 50px; */
+}
+
+.mainText {
+  margin: 40px 0 40px;
+  text-align: center;
+  text-transform: uppercase;
+}

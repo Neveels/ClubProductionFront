@@ -1,0 +1,31 @@
+.card{
+    border: 1px solid #1b2284 ;
+    padding: 30px;
+    width: 260px;
+    border-radius: 20px;
+    margin-right: 60px;
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    // cursor: pointer;
+
+    .plus{
+      cursor: pointer;
+    }
+  
+    .favorite{
+      position: absolute;
+      cursor: pointer;
+    }
+  
+    //Состояние навода на карточку
+    &:hover{
+      box-shadow: 0px 24px 35px rgba(0, 0, 0, 0.06);
+      transform: translateY(-5px);
+    }
+  
+  
+    h5{
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+  

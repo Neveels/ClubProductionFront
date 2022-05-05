@@ -3,15 +3,23 @@ body {
   font-family: system-ui;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0e212c;
+  background-color: #0F1D2B;
 }
 
 // button, input{
 //   font-family: 'Inter', system-ui;
 // }
 
+.main-nav{
+  margin: 0 auto;
+}
+
+.main{
+  background-color: #ffff
+}
+
 .wrapper{
-  background: #ffffff;
+  background: #092a46;
   box-shadow: 0px, 10px, 20px, rgba(0,0,0,0.04);
   border-radius: 5px;
   max-width: 1080px;
@@ -31,52 +39,18 @@ header{
   h3,
   p{
     margin: 0;
+    color: #FFF;
+    font-size: 25px;
   }
 
   img{
+    background-color: #FFF;
     border-radius: 5px;
     margin-right: 15px;
   }
 }
 
-.card{
-  border: 1px solid #1b2284 ;
-  padding: 30px;
-  width: 260px;
-  border-radius: 20px;
-  margin-right: 60px;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-  // cursor: pointer;
 
-
-  .favorite{
-    position: absolute;
-    cursor: pointer;
-  }
-
-  //Состояние навода на карточку
-  &:hover{
-    box-shadow: 0px 24px 35px rgba(0, 0, 0, 0.06);
-    transform: translateY(-5px);
-  }
-
-
-  h5{
-    font-weight: 400;
-    font-size: 14px;
-  }
-}
-
-.button{
-  border: 1px solid #1b2284 ;
-  background: #ffffff;
-  border-radius: 5px;
-  box-sizing: border-box;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-  // background-color: #0e212c;
-}
 
 .search-block{
   border: 1px solid #f3f3f3;
@@ -98,7 +72,7 @@ header{
 }
 
 .overlay{
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -163,7 +137,7 @@ header{
     font-size: 16px;
     font-weight: 500;
     
-    // transition: background 0.2s;
+    // transition: background 2.2s easy-in-out;
     cursor: pointer;
     
     &:hover{

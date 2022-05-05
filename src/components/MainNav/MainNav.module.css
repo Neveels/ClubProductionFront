@@ -1,0 +1,25 @@
+.main_nav {
+  /* margin: 0; */
+  padding: 0;
+  display: block;
+  background-color: #ffff;
+}
+
+.main_nav li {
+  text-transform: uppercase;
+  display: table-cell;
+  border-radius: 1px;
+  padding: 21px 20px 20px;
+  width: 100%;
+  min-width: 154.3px;
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.main-nav ul {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
