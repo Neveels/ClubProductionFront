@@ -34,21 +34,22 @@ const Registration = () => {
       password: password,
     };
 
-    AuthService.register(newCustomer).then(
-      (response) => {
+    console.log(error.response.data.message)
+AuthService.register(newCustomer)
+      .then((response) => {
         this.setState({
           message: response.data.message,
           successful: true,
         });
-
         console.log(response.data.message);
-      },
-      (error) => {
+      })
+      .catch((error) => {
+        console.log(error.response.data.message)
         const resMessage =
           (error.response &&
             error.response.data &&
-            error.response.data.message) ||
-          error.message ||
+            error.response.data.message) 
+          error.message 
           error.toString();
 
         this.setState({
@@ -57,7 +58,6 @@ const Registration = () => {
         });
       }
     );
-  };
 
   return (
     <div className={cl.wrap}>
