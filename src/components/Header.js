@@ -24,7 +24,10 @@ function Header(props) {
         </li>
         <li>
           <Link to="/auth">
-            <img width={30} height={30} src="/img/user.png" alt="user" />
+            {props.auth
+              ? <h3 onClick={() => localStorage.clear()}>Log Out</h3>
+              : <img width={30} height={30} src="/img/user.png" alt="user" />
+            }
           </Link>
         </li>
       </ul>

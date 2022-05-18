@@ -9,6 +9,8 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [eyeOpenReg, setEyeOpenReg] = useState(false);
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const postCustomerData = (e) => {
     e.preventDefault();
     const Customer = {
@@ -22,23 +24,15 @@ const Auth = () => {
     // });
 
     // this.form.validateAll();
-    AuthService.login(Customer).then(
-      () => {
-        this.props.history.push("/profile");
+    AuthService.login(Customer)
+      .then(res => {
+        localStorage.setItem("user", JSON.stringify(res.data))
+        localStorage.setItem("auth", JSON.stringify(true))
+        this.props.history.push("/");
         window.location.reload();
       },
       (error) => {
-        const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-
-        this.setState({
-          loading: false,
-          message: resMessage,
-        });
+        setErrorMessage("Invalid email or password :(")
       }
     );
   };
@@ -87,6 +81,12 @@ const Auth = () => {
         <button type="submit" className={cl.authorizationButton}>
           <p>Вход</p>
         </button>
+        {errorMessage &&
+          <div className={cl.errorMessage}>
+            <h3>{errorMessage}</h3>
+          </div>
+        }
+
       </form>
     </div>
   );
