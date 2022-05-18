@@ -34,8 +34,8 @@ const Registration = () => {
       password: password,
     };
 
-    console.log(error.response.data.message)
-AuthService.register(newCustomer)
+    console.log(error.response.data.message);
+    AuthService.register(newCustomer)
       .then((response) => {
         this.setState({
           message: response.data.message,
@@ -44,21 +44,18 @@ AuthService.register(newCustomer)
         console.log(response.data.message);
       })
       .catch((error) => {
-        console.log(error.response.data.message)
+        console.log(error.response.data.message);
         const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) 
-          error.message 
-          error.toString();
+          error.response && error.response.data && error.response.data.message;
+        error.message;
+        error.toString();
 
         this.setState({
           successful: false,
           message: resMessage,
         });
-      }
-    );
-
+      });
+  };
   return (
     <div className={cl.wrap}>
       <div className={cl.mainButtons}>
