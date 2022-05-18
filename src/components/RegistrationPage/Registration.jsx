@@ -1,28 +1,62 @@
 import { Route, Routes, Link } from "react-router-dom";
 import cl from "./Registration.module.css";
 import React, { useState } from "react";
+import AuthService from "../../service/auth.service";
 import axios from "axios";
 
 const Registration = () => {
   const [name, setName] = useState("");
-  const [surName, setSurName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [eyeOpenReg, setEyeOpenReg] = useState(false);
+  const [message, setMessage] = useState("");
+
+  // const postCustomerData = (e) => {
+  //   e.preventDefault();
+  //   const newCustomer = {
+  //     username: name,
+  //     // surName: surName,
+  //     phone: phone,
+  //     email: email,
+  //     password: password,
+  //   };
+  // };
 
   const postCustomerData = (e) => {
     e.preventDefault();
+
     const newCustomer = {
-      name: name,
-      surName: surName,
-      phone: phone,
+      username: name,
+      // surName: surName,
+      phoneNumber: phone,
       email: email,
       password: password,
     };
-    axios.post("http://localhost:8082/registration", newCustomer);
-    console.log(newCustomer);
+
+    AuthService.register(newCustomer).then(
+      (response) => {
+        this.setState({
+          message: response.data.message,
+          successful: true,
+        });
+
+        console.log(response.data.message);
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        this.setState({
+          successful: false,
+          message: resMessage,
+        });
+      }
+    );
   };
 
   return (
@@ -45,15 +79,6 @@ const Registration = () => {
             value={name}
             // onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key.replace(/[^A-Za-z\s]/g,'') && !(e.ctrlKey && e.keyCode === 86) || e.preventDefault()}
             onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div className={cl.inputWrap}>
-          <h3>Фамилия</h3>
-          <input
-            required
-            value={surName}
-            // onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key.replace(/[^A-Za-z\s]/g,'') && !(e.ctrlKey && e.keyCode === 86) || e.preventDefault()}
-            onChange={(e) => setSurName(e.target.value)}
           />
         </div>
         <div className={cl.inputWrap}>
@@ -94,17 +119,6 @@ const Registration = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        {/* <div className={cl.inputWrap}>
-          <h3>Подтверждение пароля</h3>
-          <input
-            required
-            minLength={6}
-            type={eyeOpenReg ? "text" : "password"}
-            className={cl.passwordInput}
-            value={confirmPassword}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div> */}
         {/* <img
             className={cl.eyeImage}
             src={eyeOpenReg ? "./Images/OpenEye.jpg" : "./Images/CloseEye.jpg"}

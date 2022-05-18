@@ -2,19 +2,45 @@ import { Route, Routes, Link } from "react-router-dom";
 import cl from "../RegistrationPage/Registration.module.css";
 import React, { useState } from "react";
 import axios from "axios";
+import AuthService from "../../service/auth.service";
 
 const Auth = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsename] = useState("");
   const [password, setPassword] = useState("");
   const [eyeOpenReg, setEyeOpenReg] = useState(false);
 
   const postCustomerData = (e) => {
     e.preventDefault();
     const Customer = {
-      email: email,
+      username: username,
       password: password,
     };
-    axios.post("http://localhost:8082/registration", Customer);
+
+    // this.setState({
+    //   message: "",
+    //   loading: true,
+    // });
+
+    // this.form.validateAll();
+    AuthService.login(Customer).then(
+      () => {
+        this.props.history.push("/profile");
+        window.location.reload();
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        this.setState({
+          loading: false,
+          message: resMessage,
+        });
+      }
+    );
   };
 
   return (
@@ -34,9 +60,9 @@ const Auth = () => {
           <h3>Электронная почта</h3>
           <input
             required
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="username"
+            value={username}
+            onChange={(e) => setUsename(e.target.value)}
           />
         </div>
         <div className={cl.inputWrap}>

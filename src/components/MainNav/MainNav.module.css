@@ -8,7 +8,6 @@
 .main_nav li {
   text-transform: uppercase;
   display: table-cell;
-  border-radius: 1px;
   padding: 21px 20px 20px;
   width: 100%;
   min-width: 154.3px;
