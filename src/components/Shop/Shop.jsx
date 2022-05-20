@@ -7,7 +7,7 @@ const Shop = () => {
   //Backend request
   const [items, setItems] = React.useState([]);
   React.useEffect(() => {
-    const PRODUCT_REST_API_URL = "http://localhost:8086/api/test/all";
+    const PRODUCT_REST_API_URL = "http://localhost:8086/products/allProduct";
     axios.get(PRODUCT_REST_API_URL).then((resp) => {
       const allProducts = resp.data;
       console.log(allProducts);

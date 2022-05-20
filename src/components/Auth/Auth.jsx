@@ -1,4 +1,4 @@
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, useNavigate } from "react-router-dom";
 import cl from "../RegistrationPage/Registration.module.css";
 import React, { useState } from "react";
 import axios from "axios";
@@ -8,6 +8,10 @@ const Auth = () => {
   const [username, setUsename] = useState("");
   const [password, setPassword] = useState("");
   const [eyeOpenReg, setEyeOpenReg] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigator = useNavigate();
 
   const postCustomerData = (e) => {
     e.preventDefault();
@@ -23,22 +27,15 @@ const Auth = () => {
 
     // this.form.validateAll();
     AuthService.login(Customer).then(
-      () => {
-        this.props.history.push("/profile");
+      (res) => {
+        console.log(res);
+        localStorage.setItem("user", JSON.stringify(res));
+        localStorage.setItem("auth", JSON.stringify(true));
+        navigator("/");
         window.location.reload();
       },
       (error) => {
-        const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-
-        this.setState({
-          loading: false,
-          message: resMessage,
-        });
+        setErrorMessage("Invalid email or password :(");
       }
     );
   };
@@ -87,6 +84,11 @@ const Auth = () => {
         <button type="submit" className={cl.authorizationButton}>
           <p>Вход</p>
         </button>
+        {errorMessage && (
+          <div className={cl.errorMessage}>
+            <h3>{errorMessage}</h3>
+          </div>
+        )}
       </form>
     </div>
   );

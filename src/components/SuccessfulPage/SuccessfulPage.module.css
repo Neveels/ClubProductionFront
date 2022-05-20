@@ -1,0 +1,34 @@
+.wrap {
+    width: 400px;
+    height: 300px;
+    background-color: #dfdfdf;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.avatarImg {
+    width: 100px;
+    margin: auto;
+}
+
+.txtWrap {
+    background-color: #91d044;
+    text-align: center;
+}
+
+.okBtn {
+    background-color: #333;
+    border: none;
+    width: 100px;
+    height: auto;
+    margin: auto;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.okBtn:hover {
+    outline: 3px solid black;
+}
