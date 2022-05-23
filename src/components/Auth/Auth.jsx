@@ -1,34 +1,26 @@
-import { Route, Routes, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import cl from "../RegistrationPage/Registration.module.css";
 import React, { useState } from "react";
-import axios from "axios";
 import AuthService from "../../service/auth.service";
 
 const Auth = () => {
   const [username, setUsename] = useState("");
   const [password, setPassword] = useState("");
   const [eyeOpenReg, setEyeOpenReg] = useState(false);
-
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigator = useNavigate();
 
   const postCustomerData = (e) => {
     e.preventDefault();
+
     const Customer = {
       username: username,
       password: password,
     };
 
-    // this.setState({
-    //   message: "",
-    //   loading: true,
-    // });
-
-    // this.form.validateAll();
     AuthService.login(Customer).then(
       (res) => {
-        console.log(res);
         localStorage.setItem("user", JSON.stringify(res));
         localStorage.setItem("auth", JSON.stringify(true));
         navigator("/");
@@ -54,7 +46,7 @@ const Auth = () => {
       </div>
       <form onSubmit={postCustomerData}>
         <div className={cl.inputWrap}>
-          <h3>Электронная почта</h3>
+          <h3>Имя</h3>
           <input
             required
             type="username"
@@ -73,14 +65,6 @@ const Auth = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        {/* <img
-            className={cl.eyeImage}
-            src={eyeOpenReg ? "./Images/OpenEye.jpg" : "./Images/CloseEye.jpg"}
-            onClick={() =>
-              eyeOpenReg ? setEyeOpenReg(false) : setEyeOpenReg(true)
-            }
-          /> */}
-
         <button type="submit" className={cl.authorizationButton}>
           <p>Вход</p>
         </button>

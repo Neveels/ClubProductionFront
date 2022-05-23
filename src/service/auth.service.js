@@ -1,7 +1,5 @@
 import axios from "axios";
 
-// const API_URL = `http://localhost:8086/api/auth/`;
-
 class AuthService {
   login(user) {
     return (

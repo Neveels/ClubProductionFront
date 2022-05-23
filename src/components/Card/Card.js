@@ -2,14 +2,10 @@ import styles from "./Card.module.scss";
 import React from "react";
 
 function Card({ onFavorite, imageUrl, title, price, onPlus }) {
-  // const onClickButton = () => {
-  //   alert(props.title);
-  // };
   const [isAdded, setIsAdded] = React.useState(false);
 
   const onClickPlus = () => {
     onPlus({ title, imageUrl, price });
-
     setIsAdded(!isAdded);
   };
 
@@ -46,7 +42,6 @@ function Card({ onFavorite, imageUrl, title, price, onPlus }) {
           src={isAdded ? "/img/btn-cheked.png" : "/img/btn-plus.png"}
           alt=""
         />
-        {/* </button> */}
       </div>
     </div>
   );

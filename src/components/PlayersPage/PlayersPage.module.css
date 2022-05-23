@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Libre Baskerville", serif;
+  src: url();
+}
+.wrap {
+  padding: 20px 50px 50px;
+  background-color: #fff;
+}
+
+.wrap h2 {
+  margin: 0;
+  font-size: 30px;
+  padding-left: 10px;
+}
+.MembersOfTeam {
+  display: flex;
+}

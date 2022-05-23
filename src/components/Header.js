@@ -13,14 +13,18 @@ function Header(props) {
         </div>
       </div>
       <ul className="d-flex">
+        <li className="mr-15 cu-p">
+          <Link to="/team">
+            <img width={40} height={40} src="/img/group.png" alt="group" />
+          </Link>
+        </li>
         <li onClick={props.onClickCart} className="mr-15 cu-p">
           <img
-            width={30}
-            height={30}
+            width={40}
+            height={40}
             src="/img/shopping-cart.png"
             alt="shopping-cart"
           />
-          {/* <span>10000 руб.</span> */}
         </li>
         <li>
           <Link to="/auth">
@@ -34,7 +38,7 @@ function Header(props) {
                 Log Out
               </h3>
             ) : (
-              <img width={30} height={30} src="/img/user.png" alt="user" />
+              <img width={40} height={40} src="/img/boy.png" alt="user" />
             )}
           </Link>
         </li>

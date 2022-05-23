@@ -39,3 +39,9 @@
   text-align: center;
   text-transform: uppercase;
 }
+
+.shop {
+  flex: 1;
+  /* display: grid;
+  grid-template-rows: repeat(1fr, 3); */
+}

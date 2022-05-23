@@ -15,13 +15,15 @@ const Slider = () => {
       <img
         className={`${cl.arrow} ${cl.leftArrow}`}
         src="../../../img/arrow.png"
+        alt=""
         onClick={() => setIdx(idx === 0 ? idx : idx - 1)}
       />
 
-      <img src={imgArr[idx]} className={cl.img} />
+      <img src={imgArr[idx]} className={cl.img} alt="" />
       <img
         className={cl.arrow}
         src="../../../img/arrow.png"
+        alt=""
         onClick={() => setIdx(idx === imgArr.length - 1 ? idx : idx + 1)}
       />
     </div>

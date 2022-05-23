@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Libre Baskerville", serif;
+  src: url();
+}
+
 .wrap {
   padding: 30px;
   background-color: #ffff;
@@ -8,7 +13,7 @@
   float: left;
   padding: 0 50px;
   color: #afafaf;
-  font-family: "FuturaDemi";
+  font-family: "Libre Baskerville", serif;
   font-size: 14px;
   /* margin-top: 30px; */
   width: 500px;
@@ -28,6 +33,10 @@
   margin: auto;
 }
 
+/* .mainButtons:hover {
+  outline: 1px solid rgb(124, 150, 208);
+} */
+
 .regButton {
   cursor: pointer;
   border: 1px solid #33adef;
@@ -36,10 +45,15 @@
   height: 55px;
   font-weight: 700;
   margin-right: 10px;
+  border-radius: 10px;
+}
+
+.regButton:hover {
+  outline: 1px solid rgb(124, 150, 208);
 }
 
 .regButton p {
-  font-family: "FuturaDemi";
+  font-family: "Libre Baskerville", serif;
   color: rgb(10, 8, 8);
   text-transform: uppercase;
   font-size: 16px;
@@ -69,8 +83,11 @@
   margin: 50px 0 0 50px;
 }
 
+.authorizationButton:hover {
+  outline: 1px solid rgb(124, 150, 208);
+}
 .authorizationButton p {
-  font-family: "FuturaDemi";
+  font-family: "Libre Baskerville", serif;
   color: #ffff;
   text-transform: uppercase;
   font-size: 16px;
@@ -82,23 +99,5 @@
   height: 55px;
   float: right;
   margin: 50px 70px 0 20px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
-
-/*
-.recoveryButton {
-  margin-bottom: 50px;
-}
-
-.eyeImage {
-  width: 30px;
-  position: absolute;
-  margin: -5px 0 0 500px;
-  padding: 5px;
-  border-radius: 0 5px 5px 0;
-}
-
-.eyeImage:hover {
-  cursor: pointer;
-  background: #dadada;
-} */

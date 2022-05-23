@@ -7,7 +7,7 @@ const SuccessfulPage = ({ setIsSuccess }) => {
 
   return (
     <div className={cl.wrap}>
-      <img className={cl.avatarImg} src="/img/user.png" />
+      <img className={cl.avatarImg} src="/img/user.png" alt="" />
       <div className={cl.txtWrap}>
         <h3>User registered successfully!</h3>
       </div>
@@ -18,7 +18,7 @@ const SuccessfulPage = ({ setIsSuccess }) => {
           navigate("/auth");
         }}
       >
-        <h2>OK</h2>
+        <h3>OK</h3>
       </button>
     </div>
   );

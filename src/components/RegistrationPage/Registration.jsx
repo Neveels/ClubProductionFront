@@ -2,7 +2,6 @@ import { Route, Routes, Link } from "react-router-dom";
 import cl from "./Registration.module.css";
 import React, { useState } from "react";
 import AuthService from "../../service/auth.service";
-import axios from "axios";
 import SuccessfulPage from "../SuccessfulPage/SuccessfulPage";
 
 const Registration = () => {
@@ -15,23 +14,11 @@ const Registration = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // const postCustomerData = (e) => {
-  //   e.preventDefault();
-  //   const newCustomer = {
-  //     username: name,
-  //     // surName: surName,
-  //     phone: phone,
-  //     email: email,
-  //     password: password,
-  //   };
-  // };
-
   const postCustomerData = (e) => {
     e.preventDefault();
 
     const newCustomer = {
       username: name,
-      // surName: surName,
       phoneNumber: phone,
       email: email,
       password: password,
@@ -69,13 +56,11 @@ const Registration = () => {
               <input
                 required
                 value={name}
-                // onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key.replace(/[^A-Za-z\s]/g,'') && !(e.ctrlKey && e.keyCode === 86) || e.preventDefault()}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className={cl.inputWrap}>
               <h3>Номер телефона</h3>
-              {/* <h2 className={cl.phonePlus}>+</h2> */}
               <input
                 required
                 minLength={10}
@@ -111,14 +96,6 @@ const Registration = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            {/* <img
-            className={cl.eyeImage}
-            src={eyeOpenReg ? "./Images/OpenEye.jpg" : "./Images/CloseEye.jpg"}
-            onClick={() =>
-              eyeOpenReg ? setEyeOpenReg(false) : setEyeOpenReg(true)
-            }
-          /> */}
-
             <button type="submit" className={cl.authorizationButton}>
               <p>Регистрация</p>
             </button>
