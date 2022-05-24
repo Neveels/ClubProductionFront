@@ -5,11 +5,6 @@ import ProductService from "../../service/product.service";
 function Card({ obj, onAddToCart }) {
   const [isAdded, setIsAdded] = React.useState(false);
 
-  // const onClickPlus = (obj) => {
-  //   onPlus({ obj.title, obj.imageUrl, price });
-
-  // };
-
   // Следит за изменением какого-то события
   React.useEffect(() => {
     console.log("Переменная изменилась");
@@ -24,10 +19,6 @@ function Card({ obj, onAddToCart }) {
           <span>Цена:</span>
           <b>{obj.price} р.</b>
         </div>
-        {/* <button
-          className={styles.button}
-          onClick={props.onPlus}
-        > */}
         <img
           className={styles.plus}
           onClick={() => {

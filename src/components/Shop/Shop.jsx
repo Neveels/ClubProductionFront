@@ -6,7 +6,6 @@ import Drawer from "../Drawer";
 
 const Shop = ({ onAddToCart }) => {
   const [items, setItems] = React.useState([]);
-  const [cartItems, setCartItems] = React.useState([]);
   const [user, setUser] = useState({});
 
   React.useEffect(() => {
@@ -19,11 +18,6 @@ const Shop = ({ onAddToCart }) => {
     localStorage.getItem("user") &&
       setUser(JSON.parse(localStorage.getItem("user") || ""));
   }, []);
-
-  //Этот массив лишний нужно переопределить
-  // const onAddToCart = (obj) => {
-  //   setCartItems([...cartItems, obj]);
-  // };
 
   return (
     <div className={cl.wrap}>
@@ -49,9 +43,7 @@ const Shop = ({ onAddToCart }) => {
       <section className="shop d-flex flex-wrap">
         {items.map((item) => (
           <Card
-            onClick={() =>
-              user.roles == "ROLE_ADMIN" && ProductService.deleteById(item.id)
-            }
+            onClick={() => user.roles == "ROLE_ADMIN" && ProductService.deleteById(item.id)}
             obj={item}
             onAddToCart={onAddToCart}
           />
@@ -61,31 +53,28 @@ const Shop = ({ onAddToCart }) => {
         <h3 id="popular">Популярное</h3>
       </div>
 
-      {/* <section className="shop d-flex mb-40 flex-wrap">
+      {<section className="shop d-flex mb-40 flex-wrap">
         {items.map((item) => (
           <Card
-            title={item.title}
-            price={item.price}
-            imageUrl={item.url}
-            onPlus={(item) => onAddToCart(item)}
+            onClick={() => user.roles == "ROLE_ADMIN" && ProductService.deleteById(item.id)}
+            obj={item}
+            onAddToCart={onAddToCart}
           />
         ))}
-      </section> */}
+      </section>}
       <div className={cl.mainText}>
         <h3 id="special">Спецпредложение</h3>
       </div>
 
-      {/* <section className="shop d-flex mb-40 flex-wrap">
+      {<section className="shop d-flex mb-40 flex-wrap">
         {items.map((item) => (
           <Card
-            title={item.title}
-            price={item.price}
-            imageUrl={item.url}
-            onFavorite={() => console.log("Добавить в закладки")}
-            onPlus={(obj) => onAddToCart(obj)}
+            onClick={() => user.roles == "ROLE_ADMIN" && ProductService.deleteById(item.id)}
+            obj={item}
+            onAddToCart={onAddToCart}
           />
         ))}
-      </section> */}
+      </section>}
     </div>
   );
 };
