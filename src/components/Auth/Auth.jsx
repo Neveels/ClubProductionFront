@@ -26,7 +26,7 @@ const Auth = () => {
         navigator("/");
         window.location.reload();
       },
-      (error) => {
+      () => {
         setErrorMessage("Invalid email or password :(");
       }
     );

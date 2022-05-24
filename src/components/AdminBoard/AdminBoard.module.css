@@ -1,5 +1,9 @@
 .wrap {
   width: 1080px;
-  height: 500px;
+  height: 1000;
   background-color: aliceblue;
+}
+
+.field {
+  padding-left: 20px;
 }

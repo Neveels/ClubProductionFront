@@ -15,3 +15,7 @@
 .MembersOfTeam {
   display: flex;
 }
+
+.player {
+  cursor: pointer;
+}

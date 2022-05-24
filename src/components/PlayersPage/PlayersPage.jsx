@@ -26,7 +26,7 @@ const PlayersPage = () => {
         <h2>Вратари</h2>
       </div>
 
-      <section className="shop d-flex flex-wrap mb-20">
+      <section className="player d-flex flex-wrap mb-20">
         {items
           .filter((Players) => Players.role !== "a" && Players.role !== "d")
           .map((item) => (
@@ -36,6 +36,7 @@ const PlayersPage = () => {
               image={item.image}
               name={item.name}
               number={item.numberOfPlayer}
+              id={item.id}
             />
           ))}
       </section>
@@ -51,7 +52,7 @@ const PlayersPage = () => {
         <h2>Защитники</h2>
       </div>
 
-      <section className="shop d-flex mb-20">
+      <section className="player d-flex mb-20">
         {items
           .filter((Players) => Players.role !== "g" && Players.role !== "a")
           .map((item) => (
@@ -76,7 +77,7 @@ const PlayersPage = () => {
         <h2>Нападающие</h2>
       </div>
 
-      <section className="shop d-flex mb-20">
+      <section className="player d-flex mb-20">
         {items
           .filter((Players) => Players.role !== "g" && Players.role !== "d")
           .map((item) => (

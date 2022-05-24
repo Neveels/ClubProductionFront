@@ -31,7 +31,6 @@
 .banner {
   margin-left: -25px;
   position: relative;
-  /* padding: 0 50px; */
 }
 
 .mainText {
@@ -42,6 +41,4 @@
 
 .shop {
   flex: 1;
-  /* display: grid;
-  grid-template-rows: repeat(1fr, 3); */
 }

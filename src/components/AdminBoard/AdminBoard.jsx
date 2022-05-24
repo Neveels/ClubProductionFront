@@ -1,7 +1,7 @@
 import React from "react";
 import cl from "./AdminBoard.module.css";
-import { useNavigate } from "react-router-dom";
 import AdminService from "../../service/admin.service";
+import AddNewProduct from "./AddNewProduct";
 
 const AdminBoard = () => {
   const [users, setUsers] = React.useState([]);
@@ -47,6 +47,7 @@ const AdminBoard = () => {
             </tr>
           ))}
         </table>
+        <AddNewProduct />
       </div>
     </div>
   );
