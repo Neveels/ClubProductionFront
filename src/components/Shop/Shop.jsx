@@ -43,7 +43,9 @@ const Shop = ({ onAddToCart }) => {
       <section className="shop d-flex flex-wrap">
         {items.map((item) => (
           <Card
-            onClick={() => user.roles == "ROLE_ADMIN" && ProductService.deleteById(item.id)}
+            onClick={() =>
+              user.roles == "ROLE_ADMIN" && ProductService.deleteById(item.id)
+            }
             obj={item}
             onAddToCart={onAddToCart}
           />
@@ -53,28 +55,30 @@ const Shop = ({ onAddToCart }) => {
         <h3 id="popular">Популярное</h3>
       </div>
 
-      {<section className="shop d-flex mb-40 flex-wrap">
-        {items.map((item) => (
-          <Card
-            onClick={() => user.roles == "ROLE_ADMIN" && ProductService.deleteById(item.id)}
-            obj={item}
-            onAddToCart={onAddToCart}
-          />
-        ))}
-      </section>}
+      {
+        <section className="shop d-flex mb-40 flex-wrap">
+          {items.map((item) => (
+            <Card
+              onClick={() =>
+                user.roles == "ROLE_ADMIN" && ProductService.deleteById(item.id)
+              }
+              obj={item}
+              onAddToCart={onAddToCart}
+            />
+          ))}
+        </section>
+      }
       <div className={cl.mainText}>
         <h3 id="special">Спецпредложение</h3>
       </div>
 
-      {<section className="shop d-flex mb-40 flex-wrap">
-        {items.map((item) => (
-          <Card
-            onClick={() => user.roles == "ROLE_ADMIN" && ProductService.deleteById(item.id)}
-            obj={item}
-            onAddToCart={onAddToCart}
-          />
-        ))}
-      </section>}
+      {
+        <section className="shop d-flex mb-40 flex-wrap">
+          {items.map((item) => (
+            <Card obj={item} onAddToCart={onAddToCart} />
+          ))}
+        </section>
+      }
     </div>
   );
 };

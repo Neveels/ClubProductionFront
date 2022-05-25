@@ -10,7 +10,6 @@ const Registration = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [eyeOpenReg, setEyeOpenReg] = useState(false);
-
   const [errorMessage, setErrorMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -28,6 +27,7 @@ const Registration = () => {
       (response) => {
         setIsSuccess(true);
         setErrorMessage("");
+        navigator("");
       },
       (error) => {
         setErrorMessage(error.response.data.message);
