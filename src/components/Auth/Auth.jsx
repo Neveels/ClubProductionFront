@@ -24,10 +24,11 @@ const Auth = () => {
         localStorage.setItem("user", JSON.stringify(res));
         localStorage.setItem("auth", JSON.stringify(true));
         navigator("/");
+        setErrorMessage("");
         window.location.reload();
       },
-      () => {
-        setErrorMessage("Invalid email or password :(");
+      (error) => {
+        setErrorMessage(error.response.data.message);
       }
     );
   };

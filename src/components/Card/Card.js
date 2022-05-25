@@ -12,7 +12,13 @@ function Card({ obj, onAddToCart }) {
 
   return (
     <div className={styles.card}>
-      <img width={200} height={280} src={obj.imageUrl} alt="" />
+      <img
+        // onClick={ProductService.deleteById(obj.id)}
+        width={200}
+        height={280}
+        src={obj.imageUrl}
+        alt=""
+      />
       <h5>{obj.title} </h5>
       <div className="d-flex justify-between align-center ">
         <div className="d-flex flex-column">

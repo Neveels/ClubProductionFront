@@ -17,25 +17,25 @@ function Drawer({ onClose, items }) {
         <div className="items">
           {items.length === 0 ||
             items.map((obj) => (
-            <div className="cartItem d-flex align-center mb-20" align-center>
-              <div
-                style={{ backgroundImage: `url(${obj.imageUrl})` }}
-                className="cartItemImg"
-              ></div>
+              <div className="cartItem d-flex align-center mb-20" align-center>
+                <div
+                  style={{ backgroundImage: `url(${obj.imageUrl})` }}
+                  className="cartItemImg"
+                ></div>
 
-              <div className="mr-20">
-                <p className="mb-5">{obj.name}</p>
-                <b>{obj.price} р.</b>
+                <div className="mr-20">
+                  <p className="mb-5">{obj.name}</p>
+                  <b>{obj.price} р.</b>
+                </div>
+                <img
+                  className="removeBtn"
+                  height={24}
+                  width={24}
+                  src="/img/btn-close.png"
+                  alt="Close"
+                />
               </div>
-              <img
-                className="removeBtn"
-                height={24}
-                width={24}
-                src="/img/btn-close.png"
-                alt="Close"
-              />
-            </div>
-          ))}
+            ))}
         </div>
 
         <div className="cartTotalBlock">
